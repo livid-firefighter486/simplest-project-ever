@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "api": {
-      "runtime": "now-php@3.9",
-      "memory": 512
-    }
-  },
   "routes": [
     { "handle": "filesystem" },
     {
