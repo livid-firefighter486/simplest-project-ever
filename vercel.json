@@ -1,18 +1,15 @@
 {
-    "version": 2,
+    "version": 3.0,
     "routes": [
       {
         "src": "/(.*)",  "dest": "app.py"
       }
     ],
-    "build": [
-      {
-      "env": {
-        "FLASK_ENV": "production"
-      },
-      "command": "pip install -r requirements.txt && flask run"
+    "functions": {
+    "api": {
+      "runtime": "python3.12",
+      "memory": 512
     }
-    ]
-
+  }
   }
   
