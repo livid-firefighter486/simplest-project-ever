@@ -1,0 +1,19 @@
+<!-- templates/waitlist.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waitlist</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div class="wrapper">
+    <h2>Waitlist</h2>
+    <ul>
+        {% for email in emails %}
+        <li>{{ email }}</li>
+        {% endfor %}
+    </ul>
+	</div>
+</body>
+</html>

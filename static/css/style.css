@@ -1,0 +1,81 @@
+
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.jpg'); /* Replace 'background.jpg' with the path to your image */
+    background-size: cover; /* Make the background image cover the entire screen */
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+h2 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+
+/* static/css/style.css */
+.container {
+    width: 300px; /* Adjust the width of the form as needed */
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px; /* Add rounded borders */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="email"] {
+    width: calc(100% - 20px); /* Adjust the width of the input field */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+button[type="submit"] {
+    display: block; /* Make the button a block-level element */
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.wrapper {
+    text-align: center; /* Center the content horizontally */
+    margin-top: 50px; /* Add space above the content */
+}
+
+.wrapper h2 {
+    margin-bottom: 20px; /* Add space below the heading */
+    color: #fff4f4;
+}
+
+ul {
+    width: 300px; /* Adjust the width of the list as needed */
+    margin: 0 auto; /* Center the list horizontally */
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
