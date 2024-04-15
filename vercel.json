@@ -5,11 +5,14 @@
         "src": "/(.*)",  "dest": "app.py"
       }
     ],
-    "functions": {
-      "api": {
-        "runtime": "python3.10",
-        "memory": 512
-      }
+    "build": [
+      {
+      "env": {
+        "FLASK_ENV": "production"
+      },
+      "command": "pip install -r requirements.txt && flask run"
     }
+    ]
+
   }
   
