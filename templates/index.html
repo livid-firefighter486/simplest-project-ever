@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Widget</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Popup Widget</h1>
+        <form onsubmit="submitForm(event)">
+            <input type="text" id="websiteURL" placeholder="Enter Website URL">
+            <button type="submit">Preview Website</button>
+        </form>
+        <button onclick="togglePopup()">Open Popup</button>
+        <button onclick="toggleAnotherPopup()">Open Another Popup</button>
+        <iframe src="/popup" id="iframe" frameborder="0" onload="iframeLoaded()"></iframe>
+    </div>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var websiteURL = document.getElementById("websiteURL").value;
+            var iframe = document.getElementById("iframe");
+            iframe.src = "/popup?websiteURL=" + websiteURL;
+        }
+
+        function togglePopup() {
+            var popup = document.getElementById("iframe").contentWindow.document.getElementById("popup-widget");
+            var anotherPopup = document.getElementById("iframe").contentWindow.document.getElementById("another-popup-widget");
+            if (popup) {
+                if (popup.style.display === "none") {
+                    popup.style.display = "block";
+                    if (anotherPopup) {
+                        anotherPopup.style.display = "none";
+                    }
+                } else {
+                    popup.style.display = "none";
+                }
+            }
+        }
+
+        function toggleAnotherPopup() {
+            var popup = document.getElementById("iframe").contentWindow.document.getElementById("popup-widget");
+            var anotherPopup = document.getElementById("iframe").contentWindow.document.getElementById("another-popup-widget");
+            if (anotherPopup) {
+                if (anotherPopup.style.display === "none") {
+                    anotherPopup.style.display = "block";
+                    if (popup) {
+                        popup.style.display = "none";
+                    }
+                } else {
+                    anotherPopup.style.display = "none";
+                }
+            }
+        }
+
+        function iframeLoaded() {
+            var popup = document.getElementById("iframe").contentWindow.document.getElementById("popup-widget");
+            var anotherPopup = document.getElementById("iframe").contentWindow.document.getElementById("another-popup-widget");
+            if (popup && anotherPopup) {
+                popup.style.display = "block";
+                anotherPopup.style.display = "none";
+            }
+        }
+
+                // Submit form when Enter key is pressed
+                document.getElementById("websiteURL").addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("websiteForm").submit();
+            }
+        });
+    </script>
+</body>
+</html>

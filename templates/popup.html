@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Popup Widget</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="popup-widget" id="popup-widget">
+            <div class="col-lg-4 col-md-4 mt-4 mt-sm-0" >
+                <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
+                    <div class="cursor-pointer">
+                        <div class="full-background" style="background-image: url('static/img/curved-images/curved1.jpg')"></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="text-white mb-0">We use cookies to offer the best experience to you</h5>
+                        <p class="text-white text-sm"></p>
+                        <div class="d-flex mt-5">
+                            
+                            <button onclick="parent.parent.togglePopup()">okay</button>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="another-popup-widget" id="another-popup-widget">
+        <div class="col-lg-4 col-md-4 mt-4 mt-sm-0" >
+            <div class="card bg-gradient-dark move-on-hover">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <h5 class="mb-0 text-white">Cookies</h5>
+                        <div class="ms-auto">
+                            <h1 class="text-white text-end mb-0 mt-n2"><i class="fas fa-check"></i>
+                            </h1>
+                            <p class="text-sm mb-0 text-white">okay</p>
+                        </div>
+                    </div>
+                    <p class="text-white mb-0">We use cookies to offer the best experience to you</p>
+                    
+                </div>
+                <a href="javascript:;" class="w-100 text-center py-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Show More">
+                    <i class="fas fa-chevron-down text-white"></i>
+                </a>
+            </div>
+            
+        </div>
+        
+        <button onclick="parent.parent.toggleAnotherPopup()">Close</button>
+    </div>
+    <div class="website-content">
+        {{ page_content | safe }}
+    </div>
+    <script>
+        // Add base tag to the head of the loaded HTML content
+        var website_url = '{{ website_url }}';
+        var page_content = {{ page_content | tojson | safe }};
+        var baseTag = '<base href="' + website_url + '">';
+        page_content = page_content.replace(/(<head[^>]*>)/i, '$&' + baseTag);
+        document.querySelector('.website-content').innerHTML = page_content;
+    </script>
+</body>
+</html>
